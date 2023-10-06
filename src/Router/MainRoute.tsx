@@ -31,7 +31,7 @@ export const MainRoute= createBrowserRouter([
         element: <ResetPassword/>,
     },
     {
-        path:"/forgot-password",
+        path:"/forget-password",
         element: <ForgetPassword/>,
     },
 

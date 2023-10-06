@@ -73,7 +73,7 @@ const SignIn = () => {
           </div>
           <Link to="/register">
             <div className="text-[13px] ml-2 text-slate-800 font-bold hover:text-rose-700 hover:cursor-pointer hover:underline">
-              Login
+              Register
             </div>
           </Link>
         </div>
