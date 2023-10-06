@@ -1,13 +1,11 @@
-import { Link } from "react-router-dom";
-import { BsGoogle } from "react-icons/bs";
-import { FiMail } from "react-icons/fi";
+
 import { FiKey } from "react-icons/fi";
 import logo from "../../assets/Untitled__4_-removebg-preview.png";
 
-const ForgetPassword = () => {
+const ChangePassword = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center mt-11 items-center">
-      <form className="w-[400px] flex flex-col items-center bg-white justify-center p-3 border">
+      <form className="w-[400px] flex flex-col items-center bg-white justify-center p-3 border rounded small:w-[300px] ">
 
       <div className="">
           <img src={logo} className="h-[120px] " />
@@ -54,4 +52,4 @@ const ForgetPassword = () => {
   )
 }
 
-export default ForgetPassword
+export default ChangePassword
