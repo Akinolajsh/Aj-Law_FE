@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { BsGoogle } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import { FiKey } from "react-icons/fi";
@@ -7,10 +7,12 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
-import { SignInAPI } from "../../Apis/authApi";
+import { SignInAPI, VerifiedAPI } from "../../Apis/authApi";
+import { useEffect } from "react";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const {token}= useParams()
 
   const schema = yup.object({
     email: yup.string().required(),
@@ -31,7 +33,7 @@ const SignIn = () => {
     SignInAPI({ email, password }).then((res) => {
       if (res) {
         Swal.fire({
-          title: "you have been registered succesfully😊",
+          title: "You have been login succesfully😊",
           showClass: {
             popup: "animate_animated animate_fadeInDown",
           },
@@ -39,11 +41,11 @@ const SignIn = () => {
             popup: "animate_animated animate_fadeOutUp",
           },
         });
-        navigate("/sign-in");
-      } else {
         navigate("/");
+      } else {
+        navigate("/sign-in")
         Swal.fire({
-          title: "Error occured while registering 😢😢",
+          title: "Error occured while login 😢😢",
           showClass: {
             popup: "animate_animated animate_fadeInDown",
           },
@@ -56,9 +58,18 @@ const SignIn = () => {
     });
   });
 
+  useEffect(()=>{
+if (token) {
+  VerifiedAPI(token)
+}
+  },[])
+
   return (
     <div className="w-full h-full flex flex-col justify-center mt-11 items-center">
-      <form className="w-[400px] flex flex-col items-center bg-white justify-center p-3 border rounded small:w-[300px] " onSubmit={onSubmit}>
+      <form
+        className="w-[400px] flex flex-col items-center bg-white justify-center p-3 border rounded small:w-[300px] "
+        onSubmit={onSubmit}
+      >
         {/* title */}
         <div className="">
           <img src={logo} className="h-[120px] " />

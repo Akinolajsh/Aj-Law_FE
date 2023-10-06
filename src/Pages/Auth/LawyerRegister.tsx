@@ -10,12 +10,13 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { RegisterAPI } from "../../Apis/authApi";
 
-const Register = () => {
+const LawyerRegister = () => {
   const navigate = useNavigate();
 
   const model = yup.object({
     name: yup.string().required(),
     email: yup.string().required().email().trim().lowercase(),
+    secret: yup.string().required(),
     password: yup.string().required(),
     confirm: yup.string().oneOf([yup.ref("password")]),
   });
@@ -29,9 +30,9 @@ const Register = () => {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    const { name, email, password, confirm } = data;
+    const { name, email, password, confirm,secret } = data;
     console.log("first", data);
-    RegisterAPI({ name, email, password, confirm }).then((res: any) => {
+    RegisterAPI({ name, email, password, confirm,secret }).then((res: any) => {
       if (res) {
         Swal.fire({
           title: "You have been registered succesfully😊",
@@ -106,6 +107,24 @@ const Register = () => {
             </div>
           )}
         </div>
+        {/* secret */}
+        <div className="border-b-2 h-[43px] w-full mt-6">
+          {/* actual inputs */}
+          <div className="flex">
+            <input
+              className=" outline-none w-full placeholder: text-[13px] placeholder: mb-2"
+              placeholder="secret"
+              {...register("secret")}
+            />
+            <FiKey className="text-rose-600 cursor-pointer" />
+          </div>
+          {/* error */}{" "}
+          {errors?.password?.message && (
+            <div className="text-[10px] text-rose-600 text-end mb-3 italic">
+              Please enter a secret!
+            </div>
+          )}
+        </div>
         {/* password */}
         <div className="border-b-2 h-[43px] w-full mt-6">
           {/* actual inputs */}
@@ -168,4 +187,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default LawyerRegister;
