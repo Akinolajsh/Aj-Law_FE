@@ -1,8 +1,8 @@
 
 import {AiOutlineClose, AiOutlineSearch} from "react-icons/ai"
 import {AiOutlineMenu} from "react-icons/ai"
-import img1 from "../assets/avatar1.png";
-import boxImg2 from "../assets/image2.png";
+import img1 from "../../assets/avatar1.png";
+import boxImg2 from "../../assets/image2.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -58,21 +58,21 @@ const Lawpage = () => {
             <br/>
             <div className="w-[100%] h-[80vh] flex justify-center">
                <div className="w-[90%] h-[100%] bg-slate-300 flex">
-               <div className="w-[70%] h-[100%]">
-               <div className="w-[90%] my-[30px] border-[#d5d4d4ae] border-b-[1px] py-[10px]">
+               <div className="w-[70%] h-[100%] medium:w-[100%]">
+               <div className="w-[100%] my-[30px] border-[#d5d4d4ae] border-b-[1px] py-[10px]">
         {/* main */}
         <div className="flex">
             {/* left */}
-            <div className="">
+            <div className="w-[100%]">
                 {/* hold */}
-                <div className="flex items-center gap-[10px]">
+                <div className="flex items-center gap-[10px] ">
                     <img src={img1} className="w-[25px] h-[25px] object-cover rounded-[50%]"/>
                     <div className="text-[14px] font-[500] ">Barak Obama</div>
                 </div>
                 <div className="text-[20px] leading-6 font-[600] w-[90%] my-[3px]">Thank You to America's Librarians for Protecting Our Freedom to Read</div>
                 <div className="w-[90%] font-[400] text-[#7c7c7c] my-[10px] leading-4 text-[15px]">I wrote a letter thanking librarians across the country for everything they're doing to protect our freedom to read</div>
                 {/* hold */}
-                <div className="text-14px flex justify-between w-[95%]">
+                <div className="text-14px justify-between w-[95%] flex-1 flex small:text-[10px]">
                     <div>Jul 17 . 4 min read</div>
                 </div>
             </div>
@@ -86,7 +86,7 @@ const Lawpage = () => {
             <br/>
             <br/>
             <br/>
-                <div className="w-[30%] h-[100%] bg-[red]"></div>
+            <div className="w-[30%] h-[100%] bg-[red]  medium:hidden small:hidden"></div>
                </div>
             </div>
     </div>
