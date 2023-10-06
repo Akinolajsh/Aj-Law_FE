@@ -1,11 +1,11 @@
 import axios from "axios";
 
 
-const url: string = "";
+const url: string = "https://ajlawtesting.onrender.com";
 
 export const RegisterAPI = async (data: any) => {
     try {
-      return await axios.post(`${url}/api/register`, data);
+      return await axios.post(`${url}/api/register-user`, data);
     } catch (error) {
       console.log(error);
     }
