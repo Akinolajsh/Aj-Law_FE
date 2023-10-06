@@ -1,8 +1,14 @@
+import Hero from "./Hero"
+import PostReviews from "./PostReviews"
 
-const HomeS = () => {
+
+const HomeScreen = () => {
   return (
-    <div>HomeS</div>
+    <div>
+      <Hero/>
+      <PostReviews/>
+    </div>
   )
 }
 
-export default HomeS
+export default HomeScreen

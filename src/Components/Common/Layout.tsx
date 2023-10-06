@@ -3,7 +3,7 @@ import Header from '../Static/Header'
 
 const Layout = () => {
   return (
-    <div>
+    <div className="relative">
         <Header/>
         <Outlet/>
     </div>

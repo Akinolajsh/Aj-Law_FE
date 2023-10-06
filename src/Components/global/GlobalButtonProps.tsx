@@ -1,7 +1,19 @@
+import React  from "react";
 
-const GlobalButtonProps = () => {
+interface iBtn{
+    h?: string;
+    w?: string;
+    bg?: string;
+    text?: string;
+    col?: string;
+    font?: string;
+}
+
+const GlobalButtonProps:React.FC<iBtn> = ({h,w,bg,text,col,font}) => {
   return (
-    <div>GlobalButtonProps</div>
+    <div className={`${h} ${w} ${bg} ${col} justify-center items-center flex rounded-[30px] capitalize text-[13px] ${font} cursor-pointer small:hidden`}>
+        {text}
+    </div>
   )
 }
 
