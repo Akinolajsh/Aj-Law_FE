@@ -12,7 +12,7 @@ const SignIn = () => {
         <div className="">
           <img src={logo} className="h-[120px] " />
         </div>
-        <div className=" flex items-center justify-center px-4 w-[100%] h-[35px] bg-slate-500 text-[15px] rounded-lg mb-2 text-white cursor-pointer">
+        <div className=" flex items-center justify-center px-4 w-[100%] h-[35px]  text-[15px] rounded-lg mb-2 cursor-pointer text-black border border-blue-300">
           <div className="mr-2">
             <BsGoogle />
           </div>
