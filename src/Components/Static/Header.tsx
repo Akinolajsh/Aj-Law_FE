@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import logo from "../../assets/medium.png"
+import logo from "../../assets/Group_2-removebg-preview.png"
+import logo1 from "../../assets/Group_1-removebg-preview.png"
 import GlobalButtonProps from "../global/GlobalButtonProps"
 import { useState } from "react"
 import {AiOutlineClose} from "react-icons/ai"
@@ -32,7 +33,7 @@ const toggle = () => {
             {/* main */}
             <div className="w-[90%] h-[100%] flex justify-between items-center">
                 {/* logo */}
-                <img src={logo} className="small:w-[50%]"/>
+                <img src={logo} className="small:w-[50%] w-[15%]"/>
                 {/* Holder */}
                 <div className="flex items-center gap-[20px] text-[14px] ">
                     <div className="flex items-center  gap-[20px]  small:hidden">
@@ -54,7 +55,7 @@ const toggle = () => {
                 <div className="w-[30px] h-[30px] bg-[gold] rounded-[50%] medium:hidden big:hidden" />
                 {/* box */}
              {
-                shown ?   <div className="py-[6px] w-[100px] flex flex-col items-center absolute top-[60px] right-1  gap-[10px] border-[1px] border-[silver]">
+                shown ?   <div className="py-[6px] w-[100px] flex flex-col items-center absolute top-[60px] right-1  gap-[10px] bg-[white] shadow-md rounded-md">
               <Link to="/register" className="z-10">
                 <nav className="hover:bg-[#ebebebc5] hover:cursor-pointer transition-all duration-400 w-[100%] flex justify-center
                  py-[4px]">Sign Up</nav>
@@ -76,7 +77,7 @@ const toggle = () => {
             {/* main */}
             <div className="w-[90%] h-[100%] flex justify-between items-center">
                 {/* logo */}
-                <img src={logo} className="small:w-[50%]"/>
+                <img src={logo1} className="small:w-[50%] w-[15%] medium:w-[23%]"/>
                 {/* Holder */}
                 <div className="flex items-center gap-[20px] text-[14px] ">
                     <div className="flex items-center  gap-[20px]  small:hidden text-[white]">
@@ -89,7 +90,7 @@ const toggle = () => {
                     <Link to="/register">
                  <GlobalButtonProps h="h-[40px]" w="w-[120px]" text="Get started" bg="bg-black" col="text-[white]" font="medium" />
                     </Link>
-                    <div className="ml-[5px] text-[24px] text-[black] medium:hidden big:hidden small:block" onClick={toggle}>
+                    <div className="ml-[5px] text-[24px]  medium:hidden big:hidden text-white small:block" onClick={toggle}>
               {
                 shown ? <div> 
                 <AiOutlineClose/></div> : <AiOutlineMenu />
@@ -98,14 +99,14 @@ const toggle = () => {
                 <div className="w-[30px] h-[30px] bg-[gold] rounded-[50%] medium:hidden big:hidden" />
                 {/* box */}
              {
-                shown ?   <div className="py-[6px] w-[100px] flex flex-col items-center absolute top-[60px] right-1  gap-[10px] border-[1px] border-[silver]">
+                shown ?   <div className="py-[6px] w-[100px] flex flex-col items-center absolute top-[60px] right-1  gap-[10px] bg-[white] shadow-md rounded-md">
                   <Link to="/register" className="z-10">
                 <nav className="hover:bg-[#ebebebc5] hover:cursor-pointer transition-all duration-400 w-[100%] flex justify-center
-                 py-[4px] z-10">Sign Up</nav>
+                 py-[4px] z-10 ">Sign Up</nav>
                     </Link>
                   <Link to="/sign-in" className="z-10">
                 <nav className="hover:bg-[#ebebebc5] hover:cursor-pointer transition-all duration-400 w-[100%] flex justify-center
-                 py-[4px] z-10">Sign In</nav>
+                 py-[4px] z-1">Sign In</nav>
                     </Link>
                 
             </div> : null
