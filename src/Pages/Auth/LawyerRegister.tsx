@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { RegisterAPI } from "../../Apis/authApi";
+import { LawyerRegisterAPI } from "../../Apis/authApi";
 
 const LawyerRegister = () => {
   const navigate = useNavigate();
@@ -30,9 +30,8 @@ const LawyerRegister = () => {
   });
 
   const onSubmit = handleSubmit(async (data) => {
-    const { name, email, password, confirm,secret } = data;
-    console.log("first", data);
-    RegisterAPI({ name, email, password, confirm,secret }).then((res: any) => {
+    const { name, email,secret, password, confirm, } = data;
+    LawyerRegisterAPI({ name, email, password, confirm,secret }).then((res: any) => {
       if (res) {
         Swal.fire({
           title: "You have been registered succesfully😊",
@@ -43,9 +42,9 @@ const LawyerRegister = () => {
             popup: "animate_animated animate_fadeOutUp",
           },
         });
-        navigate("/sign-in");
+        navigate("/lawyer-sign-in");
       } else {
-        navigate("/register");
+        navigate("/lawyer-register");
         Swal.fire({
           title: "Error occured while registering 😢😢",
           showClass: {

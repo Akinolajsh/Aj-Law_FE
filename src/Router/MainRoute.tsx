@@ -8,6 +8,9 @@ import ChangePassword from '../Pages/Auth/ChangePassword'
 import Lawpage from '../Pages/Home/Lawpage'
 import LawyerRegister from '../Pages/Auth/LawyerRegister'
 import CreateLaw from '../Pages/Home/CreateLaw'
+import LawyerSignIn from '../Pages/Auth/LawyerSignIn'
+import PrivateRouter from './PrivateRouter'
+import DetailPage from '../Pages/Home/Details'
 
 export const MainRoute= createBrowserRouter([
     {
@@ -33,8 +36,16 @@ export const MainRoute= createBrowserRouter([
         element: <SignIn/>,
     },
     {
+        path:"/lawyer-sign-in",
+        element: <LawyerSignIn/>,
+    },
+    {
         path:"/:token/sign-in",
         element: <SignIn/>,
+    },
+    {
+        path:"/:token/lawyer-sign-in",
+        element: <LawyerSignIn/>,
     },
     {
         path:"/reset-password",
@@ -50,7 +61,18 @@ export const MainRoute= createBrowserRouter([
     },
     {
         path:"/create-law",
-        element: <CreateLaw/>,
+        element:
+        // <PrivateRouter>
+        <CreateLaw/>
+        // </PrivateRouter>
     },
+{
+    path:"/:id/detailed-page",
+   
+    element:
+    <PrivateRouter>
+    <DetailPage/>
+    </PrivateRouter>
+}
 
 ])

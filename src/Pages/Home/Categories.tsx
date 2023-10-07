@@ -6,13 +6,13 @@ const Categories = () => {
           txt: "Programming",
         },
         {
-          txt: "Data science",
+          txt: "Data ",
         },
         {
           txt: "Technology",
         },
         {
-          txt: "Self Improvement",
+          txt: "Self ",
         },
         {
           txt: "Writing",
@@ -21,7 +21,7 @@ const Categories = () => {
           txt: "Relationships",
         },
         {
-          txt: "Machine Learning",
+          txt: "Machine",
         },
         {
           txt: "Productivity",

@@ -7,13 +7,16 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
-import { SignInAPI, VerifiedAPI } from "../../Apis/authApi";
+import { SignInAPI, SignInLawyerAPI, VerifiedAPI } from "../../Apis/authApi";
 import { useEffect } from "react";
+import { userState } from "../../Components/custom/Jotai";
+import { useRecoilState, useRecoilValue } from "recoil";
 
-const SignIn = () => {
+const LawyerSignIn = () => {
   const navigate = useNavigate();
   const { token } = useParams();
-
+  const [state, setState] = useRecoilState(userState);
+  const value = useRecoilValue(userState);
   const schema = yup.object({
     email: yup.string().required(),
     password: yup.string().required(),
@@ -30,7 +33,7 @@ const SignIn = () => {
   const onSubmit = handleSubmit(async (data) => {
     const { email, password } = data;
 
-    SignInAPI({ email, password }).then((res) => {
+    SignInLawyerAPI({ email, password }).then((res) => {
       if (res) {
         Swal.fire({
           title: "You have been login succesfully😊",
@@ -41,9 +44,10 @@ const SignIn = () => {
             popup: "animate_animated animate_fadeOutUp",
           },
         });
+        setState(res);
         navigate("/");
       } else {
-        navigate("/sign-in");
+        navigate("/lawyer-sign-in");
         Swal.fire({
           title: "Error occured while login 😢😢",
           showClass: {
@@ -149,4 +153,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default LawyerSignIn;
