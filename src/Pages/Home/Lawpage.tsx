@@ -1,12 +1,10 @@
 
-import {AiOutlineClose, AiOutlineSearch} from "react-icons/ai"
-import {AiOutlineMenu} from "react-icons/ai"
-import {AiOutlinePlus} from "react-icons/ai"
+
+import {AiOutlinePlus,AiOutlineSearch} from "react-icons/ai"
+import {TfiWrite} from "react-icons/tfi"
 import img1 from "../../assets/avatar1.png";
 import boxImg2 from "../../assets/image2.png";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../assets/Group_2-removebg-preview.png"
 
 const Lawpage = () => {
     const [show,setshow] = useState<boolean>(false)
@@ -31,7 +29,13 @@ const Lawpage = () => {
                 <input placeholder="search" className="placeholder:text-[14px] outline-none h-[80%] mx-[5px] text-[14px]"/>
                </div>
                </div>
+               {/* hold */}
+               <div className="flex items-center gap-[10px]">
+                <div className="flex gap-[10px] items-center text-[15px] small:text-[14px]">
+                    <div className="text-[20px] cursor-pointer"><TfiWrite/></div>
+                    Write</div>
             <div  className="h-[30px] w-[30px] rounded-[50%] bg-[black] big:h-[40px] big:w-[40px]"/>
+            </div>
             </div>
             </div>
             </div>
