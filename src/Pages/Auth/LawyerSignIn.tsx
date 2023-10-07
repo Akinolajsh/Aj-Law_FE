@@ -7,16 +7,17 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
-import { SignInAPI, SignInLawyerAPI, VerifiedAPI } from "../../Apis/authApi";
+import {  SignInLawyerAPI, VerifiedAPI } from "../../Apis/authApi";
 import { useEffect } from "react";
 import { userState } from "../../Components/custom/Jotai";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 const LawyerSignIn = () => {
   const navigate = useNavigate();
   const { token } = useParams();
   const [state, setState] = useRecoilState(userState);
-  const value = useRecoilValue(userState);
+  console.log(state)
+  // const value = useRecoilValue(userState);
   const schema = yup.object({
     email: yup.string().required(),
     password: yup.string().required(),
@@ -45,7 +46,7 @@ const LawyerSignIn = () => {
           },
         });
         setState(res);
-        navigate("/");
+        navigate("/:id/law-page");
       } else {
         navigate("/lawyer-sign-in");
         Swal.fire({

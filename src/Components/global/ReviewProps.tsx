@@ -1,5 +1,4 @@
 import React from "react";
-import { MdOutlineBookmarkAdd } from "react-icons/md";
 
 
 interface iReviews {

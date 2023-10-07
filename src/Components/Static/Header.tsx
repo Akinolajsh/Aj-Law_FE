@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom"
 import logo from "../../assets/Group_2-removebg-preview.png"
 import logo1 from "../../assets/Group_1-removebg-preview.png"
-import GlobalButtonProps from "../global/GlobalButtonProps"
 import { useState } from "react"
 import {AiOutlineClose} from "react-icons/ai"
 import {AiOutlineMenu} from "react-icons/ai"
+import { useRecoilState } from "recoil"
+import GlobalButtonProps from "../global/GlobalButtonProps"
+import { user } from "../custom/Jotai"
 
 const Header = () => {
+
+const [toogle, setToogle]= useRecoilState(user)
 
 const [show, setShow]= useState<boolean>(false)
 
@@ -88,7 +92,18 @@ const toggle = () => {
                     </div>
                     
                     <Link to="/register">
-                 <GlobalButtonProps h="h-[40px]" w="w-[120px]" text="Get started" bg="bg-black" col="text-[white]" font="medium" />
+                    {
+              toogle ? (  <div
+                onClick={()=>{
+                  setToogle(null)
+                }}
+                >
+                    <GlobalButtonProps h="h-[40px]" w="w-[120px]" text="Log out" bg="bg-black" col="text-[white]" font="medium" />
+                 
+                </div>):( <Link to="/general">
+                <GlobalButtonProps h="h-[40px]" w="w-[120px]" text="Get started" bg="bg-black" col="text-[white]" font="medium" />
+            </Link>)
+            }
                     </Link>
                     <div className="ml-[5px] text-[24px]  medium:hidden big:hidden text-white small:block" onClick={toggle}>
               {

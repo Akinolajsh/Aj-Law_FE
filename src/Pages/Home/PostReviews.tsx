@@ -21,7 +21,7 @@ const PostReviews = () => {
       </div>
   {
     getAll?.map((el:any)=>(
-     <div>
+     <div key={el.id}>
 <Link to={`/${el.id}/detailed-page`}>
 <ReviewProps
       avata={el.avatar}

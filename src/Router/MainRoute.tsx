@@ -56,15 +56,15 @@ export const MainRoute= createBrowserRouter([
         element: <ChangePassword/>,
     },
     {
-        path:"/law-page",
+        path:"/:id/law-page",
         element: <Lawpage/>,
     },
     {
         path:"/create-law",
         element:
-        // <PrivateRouter>
+        <PrivateRouter>
         <CreateLaw/>
-        // </PrivateRouter>
+      </PrivateRouter>
     },
 {
     path:"/:id/detailed-page",

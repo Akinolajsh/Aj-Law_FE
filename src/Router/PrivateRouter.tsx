@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 
 const PrivateRouter: React.FC<PropsWithChildren> = ({ children }) => {
   const value: any = useRecoilValue(userState);
-  const [state, setState] = useRecoilState<any>(user);
+  const [ setState] = useRecoilState<any>(user);
 
   let myToken: any = {};
   let token: string = value;
@@ -16,7 +16,7 @@ const PrivateRouter: React.FC<PropsWithChildren> = ({ children }) => {
     setState(myToken.id);
   }
   return (
-    <div>{state ? <div>{children}</div> : <Navigate to="/sign-in" />}</div>
+    <div>{token ? <div>{children}</div> : <Navigate to="/sign-in" />}</div>
   );
 };
 

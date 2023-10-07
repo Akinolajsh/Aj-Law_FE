@@ -3,12 +3,16 @@ import axios from 'axios';
 const url:string="https://lawaj.onrender.com/api"
 
 
-export const interpreteLaw =async(id:string, data:any)=>{
+export const interpreteLaw =async( id:string,  data:any)=>{
+
     try {
         const config:any={
-            "content-type": "multipart/form-data"
+            "content-type": "multipart/form-data",
+            // headers: {
+            //     authorization: `Bearer ${token}`
+            // }
         }
-        return await axios.post(`${url}/${id}/create-law`,data,config).then((res:any)=>{
+        return await axios.post(`${url}/${id}/create-law`, data, config).then((res:any)=>{
             // return res.data.data
             console.log(res.data.data)
         })
@@ -39,9 +43,10 @@ export const viewSingleLaw =async(lawID:string)=>{
     }
 }
 
-export const seeLawyerLaw =async(data:any, id:string)=>{
+export const seeLawyerLaw =async(id:string)=>{
     try {
-      return await axios.get(`${url}/${id}/view-lawyer-law`, data).then((res:any)=>{
+      return await axios.get(`${url}/${id}/view-lawyer-law`, ).then((res:any)=>{
+        console.log("first" ,res)
         return res.data.data
       })  
     } catch (error) {

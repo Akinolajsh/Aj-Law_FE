@@ -6,17 +6,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { interpreteLaw } from "../../Apis/lawApi";
-import { user, userState } from "../../Components/custom/Jotai";
+import { user } from "../../Components/custom/Jotai";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 const CreateLaw = () => {
   const navigate = useNavigate();
   const [state, setState] = useRecoilState(user);
-  const value = useRecoilValue(user);
-
-  console.log(user)
-
+  const value:string = useRecoilValue(user);
   const userID: any = state;
+
+  console.log("reading users value: ",  value,userID)
+
 
   console.log(setState);
   const [image, setimage] = useState<string>("");
@@ -52,18 +52,22 @@ const CreateLaw = () => {
     formData.append("category", category);
     formData.append("image", image);
     console.log("first", formData);
-    interpreteLaw(user, formData).then((res: any) => {
+
+    console.log("reading users: ", value)
+
+    interpreteLaw(value, formData).then((res: any) => {
+      console.log(res)
       // if (res) {
-      //   Swal.fire({
-      //     title: "You have been registered succesfully😊",
-      //     showClass: {
-      //       popup: "animate_animated animate_fadeInDown",
-      //     },
-      //     hideClass: {
-      //       popup: "animate_animated animate_fadeOutUp",
-      //     },
-      //   });
-      //   navigate("/");
+        Swal.fire({
+          title: "You have been registered succesfully😊",
+          showClass: {
+            popup: "animate_animated animate_fadeInDown",
+          },
+          hideClass: {
+            popup: "animate_animated animate_fadeOutUp",
+          },
+        });
+        navigate("/");
       // } else {
       //   navigate("/create-law");
       //   Swal.fire({
@@ -76,10 +80,8 @@ const CreateLaw = () => {
       //       popup: "animate_animated animate_fadeOutUp",
       //     },
       //   });
-      //   console.log("first", res);
       // }
 
-      console.log("I am ")
     });
   });
 
@@ -164,7 +166,7 @@ const CreateLaw = () => {
               </div>
             </div>
             <div className="border-[1px] px-2 py-2 border-[#acacac]h-[35px] w-[150px] flex items-center mt-4">
-              <div className="flex w-[100%]">
+              <div className="flex w-[100%] h-[50px]">
                 <input
                   className="h-[100%] outline-none placeholder: text-[14px] font-medium flex-1 bg-transparent placeholder:text-[#0000009f] my-1"
                   placeholder="Category"
