@@ -6,17 +6,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { interpreteLaw } from "../../Apis/lawApi";
-import { user } from "../../Components/custom/Jotai";
+import { user, userState } from "../../Components/custom/Jotai";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 const CreateLaw = () => {
   const navigate = useNavigate();
   const [state, setState] = useRecoilState(user);
   const value:string = useRecoilValue(user);
+  const stateToken:string = useRecoilValue(userState);
+
+  console.log("reading users value: ",  value)
+
   const userID: any = state;
-
-  console.log("reading users value: ",  value,userID)
-
 
   console.log(setState);
   const [image, setimage] = useState<string>("");

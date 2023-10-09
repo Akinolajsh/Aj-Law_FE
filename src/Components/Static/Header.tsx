@@ -88,7 +88,9 @@ const toggle = () => {
                     <nav>Our story</nav>
                     <nav>Membership</nav>
                     <nav>Write</nav>
+                    <Link to="/sign-in">
                     <nav>Sign In</nav>
+                    </Link>
                     </div>
                     
                     <Link to="/register">

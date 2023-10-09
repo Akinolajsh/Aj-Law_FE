@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 
 const PrivateRouter: React.FC<PropsWithChildren> = ({ children }) => {
   const value: any = useRecoilValue(userState);
-  const [ setState] = useRecoilState<any>(user);
+  const [state, setState] = useRecoilState<any>(user);
 
   let myToken: any = {};
   let token: string = value;

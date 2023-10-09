@@ -100,7 +100,7 @@ console.log(value)
             <br/>
             <br/>
             <br/>
-            <div className="w-[30%] h-[100%] bg-[red]  medium:hidden small:hidden"></div>
+            {/* <div className="w-[30%] h-[100%] bg-[red]  medium:hidden small:hidden"></div> */}
                </div>
             </div>
     </div>
